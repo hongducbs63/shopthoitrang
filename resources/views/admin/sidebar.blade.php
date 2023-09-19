@@ -37,9 +37,9 @@
                with font-awesome or any other icon font library -->
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+                <i class="fas fa-bars mr-1"></i>
               <p>
-                Dashboard
+                Danh mục
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -47,21 +47,16 @@
               <li class="nav-item">
                 <a href="../../index.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v1</p>
+                  <p>Thêm danh mục </p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="../../index2.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v2</p>
+                  <p>Danh sách danh mục</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="../../index3.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v3</p>
-                </a>
-              </li>
+              
             </ul>
           </li>
           

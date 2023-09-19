@@ -25,7 +25,8 @@ class LoginController extends Controller
             'email.email' => 'Email không đúng định dạng',
             // 'email.unique' => 'Email đã tồn tại trên hệ thống',
         ]);
-
+        // echo $request->input('email');
+        // dd($request->input());
         if(Auth::attempt([
             'email' =>$request->input('email'),
             'password' =>$request->input('password'),
@@ -36,5 +37,10 @@ class LoginController extends Controller
         // Session::flash('errors','Email hoặc Password không đúng');
         return redirect()->back()->with('msg','Email hoặc Password chưa đúng');
         // dd($request->input());
+        // return redirect()->route('admin');
+        
+    }
+    public function add(){
+        return view('admin.home');
     }
 }
