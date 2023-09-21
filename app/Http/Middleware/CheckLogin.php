@@ -19,7 +19,6 @@ class CheckLogin
         // echo Auth::user()->email;
         
         if (Auth::check()) {
-            echo Auth::user()->email;
             return $next($request);
         } else {
             return redirect()->route('login');
