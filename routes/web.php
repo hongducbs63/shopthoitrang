@@ -15,7 +15,10 @@ Route::middleware(['checklogin'])->prefix('admin')->group(function(){
 
     //Menu
     Route::prefix('menus')->group(function(){
-        Route::get('add',[MenuController::class,'create']);
+        Route::get('add',[MenuController::class,'create'])->name('themdanhmuc');
+        Route::post('add',[MenuController::class,'store']);
+        Route::get('list',[MenuController::class,'index']);
+        Route::DELETE('destroy',[MenuController::class,'destroy']);
     });
 });
 Route::get('admin/login',[LoginController::class,'add']);

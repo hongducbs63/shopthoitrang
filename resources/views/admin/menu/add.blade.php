@@ -12,19 +12,27 @@
      <script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/classic/ckeditor.js"></script>
 @endsection
 @section('content')
+    @include('admin.alert')
     <form action="" method="POST">
         <div class="card-body">
 
             <div class="form-group">
                 <label for="menu">Tên danh mục</label>
-                <input type="text" name='name' class="form-control" id="menu" placeholder="Enter name">
+                <input type="text" name='name' class="form-control" id="menu" placeholder="Nhập tên danh mục">
+                @error('name')
+                <span style="color: red">{{$message}}</span>
+            
+            @enderror
             </div>
 
             <div class="form-group">
                 <label for="parent_id">Danh mục</label>
                 <select class="form-control" name="parent_id">
                     <option value="0">Danh Mục Cha</option>
-
+                    @foreach ($menus as $menu)
+                    <option value="{{$menu->id}}">{{$menu->name}}</option>
+                        
+                    @endforeach
                 </select>
             </div>
 
@@ -57,7 +65,7 @@
         <div class="card-footer">
             <button type="submit" class="btn btn-primary">Tạo danh mục</button>
         </div>
-
+        @csrf
     </form>
 @endsection
 @section('footer')
