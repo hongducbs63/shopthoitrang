@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Menu\RequestFormMenu;
 use Illuminate\Http\Request;
 use App\Http\Services\Menu\MenuService;
+use App\Models\Menu;
+
 class MenuController extends Controller
 {
     //
@@ -51,5 +53,13 @@ class MenuController extends Controller
         ]);
     }
 
-  
+    public function show(Menu $menu){
+        dd($menu);
+        return view('admin.menu.edit',[
+            'title' => 'Chỉnh sửa danh mục'.$menu->name,
+            'menus' => $menu,
+            'menus' => $this->menuService->getAll(),
+
+        ]);
+    }
 }
