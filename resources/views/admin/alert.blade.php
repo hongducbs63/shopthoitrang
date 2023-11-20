@@ -2,8 +2,8 @@
     <div class="alert alert-danger">{{session('msg')}}</div>
 @endif
 
-@if (session('succcess'))
-    <div class="alert alert-success mt-2">{{session('succcess')}}</div>
+@if (session('success'))
+    <div class="alert alert-success mt-2">{{session('success')}}</div>
 @endif
 
 @if (session('eror'))

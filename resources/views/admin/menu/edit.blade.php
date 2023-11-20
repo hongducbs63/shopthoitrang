@@ -1,14 +1,5 @@
 @extends('admin.main')
 @section('head')
-    {{-- <script src="{{ asset('ckeditor5-build-balloon/ckeditor.js') }}"></script> --}}
-    {{-- <script src="/ckeditor5-build-balloon/ckeditor.js"></script> --}}
-    {{-- <script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/balloon/ckeditor.js"></script> --}}
-    {{-- <script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/balloon-block/ckeditor.js"></script> --}}
-    {{-- <script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/inline/ckeditor.js"></script> --}}
-
-    {{-- <script src="//cdn.ckeditor.com/4.21.0/standard/ckeditor.js"></script> --}}
-    {{-- <script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/inline/ckeditor.js"></script>
-     --}}
      <script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/classic/ckeditor.js"></script>
 @endsection
 @section('content')
@@ -31,8 +22,9 @@
                     <option value="0" {{$menu->parent_id == 0 ? 'selected':''}}>Danh Mục Cha</option>
                     @foreach ($menus as $menuParent)
                         <option value="{{$menuParent->id}}"
-                            {{$menuParent->id == $menu->parent_id ? "selected": ""}}>\
-                            {{$menuParent->name}}</option>
+                            {{$menuParent->id == $menu->parent_id ? 'selected' : ''}}>
+                            {{$menuParent->name}}
+                        </option>
                         
                     @endforeach
                 </select>
@@ -40,23 +32,26 @@
 
             <div class="form-group">
                 <label for="description">Mô tả</label>
-                <textarea name="description" class="form-control" rows="3"></textarea>
+                <textarea name="description" class="form-control" rows="3">{{$menu->description }}
+                </textarea>
             </div>
 
 
             <div class="form-group">
                 <label for="content">Mô Tả Chi Tiết</label>
-                <textarea name="content" id="editor" class="form-control" rows="5"></textarea>
+                <textarea name="content" id="editor" class="form-control" rows="5">
+                    {{$menu->content}}
+                </textarea>
             </div>
 
             <div class="form-group">
                 <label>Kích hoạt</label>
                 <div class="form-check">
-                    <input class="form-check-input" value="1" type="radio" name="active" id="active">
+                    <input class="form-check-input" value="1" type="radio" name="active" {{$menu->active == 1 ? 'checked' : ''}} id="active">
                     <label for="active" class="form-check-label">Có</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" value="0" name="active" id="no_active">
+                    <input class="form-check-input" type="radio" value="0" name="active" {{$menu->active == 0 ? 'checked' : ''}} id="no_active">
                     <label for="no_active" class="form-check-label">Không</label>
                 </div>
 
@@ -65,7 +60,7 @@
         <!-- /.card-body -->
 
         <div class="card-footer">
-            <button type="submit" class="btn btn-primary">Tạo danh mục</button>
+            <button type="submit" class="btn btn-primary">Cập nhật danh mục</button>
         </div>
         @csrf
     </form>

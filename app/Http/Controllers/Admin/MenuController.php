@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Menu\RequestFormMenu;
+// use App\Http\Requests\Menu\RequestFormMenu;
 use Illuminate\Http\Request;
+use App\Http\Requests\Menu\CreateFormRequest;
 use App\Http\Services\Menu\MenuService;
 use App\Models\Menu;
 
@@ -23,7 +24,7 @@ class MenuController extends Controller
             'menus' => $this->menuService->getParent(),
         ]);
     }
-    public function store(RequestFormMenu $request){
+    public function store(CreateFormRequest $request){
     //    dd($request->input());
         $result = $this->menuService->create($request);
         return redirect()->back();
@@ -54,12 +55,17 @@ class MenuController extends Controller
     }
 
     public function show(Menu $menu){
-        dd($menu);
+        // dd($menu);
         return view('admin.menu.edit',[
             'title' => 'Chỉnh sửa danh mục'.$menu->name,
-            'menus' => $menu,
-            'menus' => $this->menuService->getAll(),
+            'menu' => $menu,
+            'menus' => $this->menuService->getParent(),
 
         ]);
+    }
+
+    public function update(Menu $menu, CreateFormRequest $request){
+        $this->menuService->update($request,$menu);
+        return redirect('/admin/menus/list');
     }
 }

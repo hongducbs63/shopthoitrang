@@ -47,6 +47,7 @@
                 <textarea name="content" id="editor" class="form-control" rows="5"></textarea>
             </div>
 
+
             <div class="form-group">
                 <label>Kích hoạt</label>
                 <div class="form-check">

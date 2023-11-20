@@ -23,7 +23,7 @@ class MenuService{
                 'content' =>(string) $request->input('content'),
                 'active' =>(int) $request->input('active'),
             ]);
-            Session::flash('succcess','Tạo danh mục thành công');
+            Session::flash('success','Tạo danh mục thành công');
         } catch(\Exception $err){
             Session::flash('eror',$err->getMessage());
             return false;
@@ -32,6 +32,19 @@ class MenuService{
         return true;
     }
 
+    public function update($request, $menu){
+        if($request->input('parent_id') != $menu->id){
+            $menu->parent_id = (int) $request->input('parent_id');
+        }
+        $menu->name = (string) $request->input('name');
+        $menu->description = (string) $request->input('description');
+        $menu->content = (string) $request->input('content');
+        $menu->active = (string) $request->input('active');
+        $menu->save();
+
+        Session::flash('success' , 'Cập nhật thành công Danh mục');
+        return True;
+    }
     public function destroy($request){
         $id = (int) $request->input('id');
     
