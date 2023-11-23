@@ -27,8 +27,10 @@ Route::middleware(['checklogin'])->prefix('admin')->group(function(){
 
     Route::prefix('products')->group(function(){
         Route::get('add',[ProductController::class,'create']);
+        Route::post('add',[ProductController::class,'store']);
     });
 
+    //Upload
     Route::post('upload/services',[UploadController::class,'store']);
 });
 Route::get('admin/login',[LoginController::class,'add']);

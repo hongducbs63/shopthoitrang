@@ -48,11 +48,7 @@
                 <label>Mô Tả </label>
                 <textarea name="description" class="form-control">{{ old('description') }}</textarea>
             </div>
-{{-- 
-            <div class="form-group">
-                <label>Mô Tả Chi Tiết</label>
-                <textarea name="content" id="content" class="form-control">{{ old('content') }}</textarea>
-            </div> --}}
+
             <div class="form-group">
                 <label for="content">Mô Tả Chi Tiết</label>
                 <textarea name="content" id="editor" class="form-control" rows="5">{{ old('content') }}</textarea>
@@ -60,10 +56,10 @@
             <div class="form-group">
                 <label for="menu">Ảnh Sản Phẩm</label>
                 <input type="file" name="file" class="form-control" id="upload">
-                {{-- <div id="image_show">
+                <div id="image_show">
 
                 </div>
-                <input type="hidden" name="thumb" id="thumb"> --}}
+                <input type="hidden" name="file" id="file">
             </div>
 
             <div class="form-group">

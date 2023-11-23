@@ -6,6 +6,6 @@
     <div class="alert alert-success mt-2">{{session('success')}}</div>
 @endif
 
-@if (session('eror'))
-    <div class="alert alert-danger">{{session('eror')}}</div>
+@if (session('error'))
+    <div class="alert alert-danger">{{session('error')}}</div>
 @endif
