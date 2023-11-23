@@ -68,7 +68,6 @@ class ProductAdminService
             Session::flash('success', 'Cập nhật thành công');
         } catch (\Exception $err) {
             Session::flash('error', 'Có lỗi vui lòng thử lại');
-            // \Log::info($err->getMessage());
             return false;
         }
         return true;

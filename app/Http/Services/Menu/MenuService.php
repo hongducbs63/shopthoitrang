@@ -25,7 +25,7 @@ class MenuService{
             ]);
             Session::flash('success','Tạo danh mục thành công');
         } catch(\Exception $err){
-            Session::flash('eror',$err->getMessage());
+            Session::flash('error',$err->getMessage());
             return false;
 
         }
