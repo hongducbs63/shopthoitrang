@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\Session;
 
 class ProductAdminService
 {
+    public function getMenuParent()
+    {
+        return Menu::where('parent_id', 0)->get();
+    }
     public function getMenu()
     {
         return Menu::where('active', 1)->get();

@@ -43,4 +43,6 @@ class LoginController extends Controller
     public function add(){
         return view('admin.home');
     }
+
+    
 }
