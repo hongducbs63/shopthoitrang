@@ -179,20 +179,7 @@
                                                 title="Đăng ký"><span class="account-menu" aria-hidden="true">Đăng
                                                     ký</span></a>
                                         </div>
-                                        <div id="site-cart-handle" class="icon-cart" aria-label="Open cart"
-                                            title="Giỏ hàng">
-                                            <a href="/cart">
-                                                <span class="cart-menu" aria-hidden="true">
-                                                    <i class="far fa-shopping-cart"></i>
-                                                    <span class="count-holder">
-                                                        <span class="count">(3)</span>
-                                                    </span>
-                                                </span>
-                                            </a>
-                                            <div class="loadBodyCart"></div>
-                                        </div>
-                                        <div class="language_list">
-                                        </div>
+                                        @include('giohang')
                                     </div>
                                 </div>
                             </div>
@@ -225,7 +212,7 @@
             </div>
         </div>
     
-        <section class="sec-product-detail bg0 p-t-65 p-b-60">
+        <section class="sec-product-detail bg0 p-t-65 p-b-60 mt-4">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-lg-7 p-b-30">
@@ -275,39 +262,52 @@
                                 {{ $title }}
                             </h4>
     
-                            <span class="mtext-106 cl2">
-                                {!! \App\Helpers\Helper::price($product->price, $product->price_sale) !!}
-                            </span>
-    
-                            <p class="stext-102 cl3 p-t-23">
-                                {{ $product->description }}
+                            <p class="mtext-106 cl2" style="font-size: 25px ; margin: 30px 0">
+                                {{-- {!! \App\Helpers\Helper::price($product->price, $product->price_sale) !!} --}}
+                               $ {{$product->price}} 
                             </p>
     
+                          
+                            <div style="">
+                                <label for="parent_id" style="font-size: 25px">Size</label>
+                                <select class="form-control"  name='size'>
+                                    {{-- <option value="0">Danh Mục Cha</option> --}}                  
+                                    <option  value="38" style="width:80px">38</option>
+                                    <option  value="39" style="width:80px">39</option>
+                                    <option  value="40" style="width:80px">40</option>
+                                    <option  value="41" style="width:80px">41</option>
+                                    <option  value="42" style="width:80px">42</option>
+                                        
+                                </select>
+                            </div>
                             <!--  -->
                             <div class="p-t-33">
                                 <div class="flex-w flex-r-m p-b-10">
                                     <div class="size-204 flex-w flex-m respon6-next">
-                                        <form action="/add-cart" method="post">
+                                        <form action="/add-cart" method="POST">
                                             @if ($product->price !== NULL)
                                                 <div class="wrap-num-product flex-w m-r-20 m-tb-10">
                                                     <div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
                                                         <i class="fs-16 zmdi zmdi-minus"></i>
                                                     </div>
+                                                    <p>Nhập số lượng</p>
+                                                    {{-- <input class="mtext-104 cl3 txt-center num-product" type="number"
+                                                           name="num_product" value="1"> --}}
+                                                           <div class="quantity-container">
+                                                            <button class="quantity-btn" onclick="updateQuantity(-1)">-</button>
+                                                            <input type="number" id="quantity" value="1"  name="num_product">
+                                                            <button class="quantity-btn" onclick="updateQuantity(1)">+</button>
+                                                        </div>
     
-                                                    <input class="mtext-104 cl3 txt-center num-product" type="number"
-                                                           name="num_product" value="1">
-    
-                                                    <div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
-                                                        <i class="fs-16 zmdi zmdi-plus"></i>
-                                                    </div>
+                                                   
                                                 </div>
     
     
-                                                <button type="submit"
-                                                        class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 ">
-                                                    Add to cart
+                                                <button type="submit" style="margin: 20px 0 ; width: 200px; height: 50px;"
+                                                        class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 mt-3 ">
+                                                    Thêm vào giỏ hàng
                                                 </button>
-                                                <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                                <input type="" name="product_id" value="{{ $product->id }}">
                                             @endif
                                             @csrf
                                         </form>
@@ -326,17 +326,17 @@
                                 </div>
     
                                 <a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100"
-                                   data-tooltip="Facebook">
+                                   data-tooltip="Facebook" style="font-size: 50px">
                                    <i class="fab fa-facebook"></i>
                                 </a>
     
                                 <a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100"
-                                   data-tooltip="Twitter">
+                                   data-tooltip="Twitter" style="font-size: 50px">
                                     <i class="fab fa-twitter"></i>
                                 </a>
     
                                 <a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100"
-                                   data-tooltip="Google Plus">
+                                   data-tooltip="Google Plus" style="font-size: 50px">
                                     <i class="fab fa-google-plus"></i>
                                 </a>
                             </div>
@@ -531,7 +531,7 @@
             <div class="container">
                 <div class="p-b-45">
                     <h3 class="ltext-106 cl5 txt-center">
-                        Related Products
+                        Sản phẩm liên quan
                     </h3>
                 </div>
     
@@ -547,7 +547,8 @@
                 <div class="col-lg-3 col-md-4">
                     <div class="logo-footer">
                         <div class="logo">
-                            <a href="/"><img src="https://web.nvnstatic.net/img/nhanh.png?v=2"
+                            <a href="/">
+                                <img src="https://www.shutterstock.com/image-vector/shoes-shop-logo-vector-store-260nw-1718721763.jpg"
                                     alt=""></a>
                         </div>
                         <div class="list-addres">
@@ -708,11 +709,54 @@
         }
     </style>
     <style>
+        /* Optional: Add some basic styling to make it look nice */
+        .quantity-container {
+            display: flex;
+            align-items: center;
+        }
+        .quantity-btn {
+            cursor: pointer;
+            padding: 5px 10px;
+            font-size: 16px;
+            margin: 0 5px;
+        }
+    </style>
+    <style>
+    .mtext-105 {
+        font-size: 30px; /* Điều chỉnh kích thước phông chữ tùy ý */
+    }
+    <script>
+        function updateQuantity(change) {
+            var quantityInput = document.getElementById('quantity');
+            var currentQuantity = parseInt(quantityInput.value);
+            var newQuantity = currentQuantity + change;
+
+            if (newQuantity > 0) {
+                quantityInput.value = newQuantity;
+            }
+        }
+    </script>
+</style>
+
+    <style>
         .main-whynote {
             background: #f2f2f2;
             padding: 100px 0 30px;
             position: relative;
             transition: all 4s;
+        }
+    </style>
+    <style>
+        .size{
+            width: 80px;
+            height: 50px;
+            margin-right: 10px;
+            margin-bottom: 20px;
+            background: red;
+            color: aliceblue;
+        }
+        .size:hover{
+            background: #5a5252;
         }
     </style>
     <style>
@@ -782,6 +826,7 @@
     </style><input type="hidden" id="bussinessId" value="97757"><input type="hidden"
         value="O0wdl6792q0O42qzsu0gCmotBLZbvAdgO7i3DM9jofdrSdijpj8JCUxyUBg6fMxtL5qLMIixizSa5iGpaBFXB8ftBThLDOgibUkT8ySr4d4MMBPH4qytLuu9YriYt062y3JobOZ6LCm0TLQx3mKnkmVAlqf7cHmZ6FMcLDCbdUaAI62"
         id="uctk" name="uctk" /><input type="hidden" id="clienIp" value="42.113.154.144">
+        
 </body>
 
 </html>

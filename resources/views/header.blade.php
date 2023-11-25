@@ -3,7 +3,7 @@
         <div class="header-top wrap-flex-align">
             <div class="wrap-logo hidden-xs hidden-sm">
                 <a href="/" title="Logo">
-                    <img style="max-width: 200px" alt="Logo" src="/img/nhanh.png" />
+                    <img style="max-width: 120px" alt="Logo" src="https://img.freepik.com/premium-vector/shoes-shop-logo-template-design_316488-452.jpg" />
                 </a>
             </div>
             <div class="hidden-xs hidden-sm">
@@ -62,7 +62,7 @@
                         <button type="submit" class="icon-search btn">
                             <span class="search-menu" aria-hidden="true">
                                 <img src="https://web.nvnstatic.net/tp/T0320/img/icon-header-3.png?v=3"
-                                    alt="cart">
+                                    alt="carts">
                             </span>
                         </button>
                     </form>
@@ -78,14 +78,14 @@
                                 <div class="wrap-logo">
                                     <a href="/" title="Logo">
                                         <img style="max-width: 130px" alt="Logo"
-                                            src="/img/nhanh.png" />
+                                            src="https://www.shutterstock.com/image-vector/shoes-shop-logo-vector-store-260nw-1718721763.jpg" />
                                     </a>
                                 </div>
                             </div>
                             <div class="col-sm-4 col-xs-3 group-icon iconSearch">
                                 <span id="site-cart-handle" class="icon-cart" aria-label="Open cart"
                                     title="Giỏ hàng">
-                                    <a href="/cart">
+                                    <a href="/carts">
                                         <span class="cart-menu" aria-hidden="true">
                                             <span class="count-holder">
                                                 <span class="count">3</span>

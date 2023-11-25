@@ -29,7 +29,7 @@
 
                                     <p class="price">
                                         <strong class="f-left">
-                                            <span class="tp_product_price">{{$product->price}} ₫ </span>
+                                            <span class="tp_product_price">${{$product->price}} </span>
                                         </strong>
                                     </p>
                                     <p class="discount-percent"></p>

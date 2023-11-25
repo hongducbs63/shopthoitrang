@@ -179,20 +179,7 @@
                                                 title="Đăng ký"><span class="account-menu" aria-hidden="true">Đăng
                                                     ký</span></a>
                                         </div>
-                                        <div id="site-cart-handle" class="icon-cart" aria-label="Open cart"
-                                            title="Giỏ hàng">
-                                            <a href="/cart">
-                                                <span class="cart-menu" aria-hidden="true">
-                                                    <i class="far fa-shopping-cart"></i>
-                                                    <span class="count-holder">
-                                                        <span class="count">(3)</span>
-                                                    </span>
-                                                </span>
-                                            </a>
-                                            <div class="loadBodyCart"></div>
-                                        </div>
-                                        <div class="language_list">
-                                        </div>
+                                       @include('giohang')
                                     </div>
                                 </div>
                             </div>
